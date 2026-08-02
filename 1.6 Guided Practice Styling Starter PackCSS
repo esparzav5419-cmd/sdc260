@@ -1,0 +1,22 @@
+/*
+    Author:Valentin Esparza
+    Date:8/1/2026
+    Purpose:This CSS code styles the External Style Pack with a gold-to-orange gradient, decorative border, shadow, and readable text to make it stand out.
+*/
+
+/* STEP 9 */
+/* Targets the "External" card pack for special styling */
+.external-pack {
+
+    /* Adds a diagonal gradient background from gold to orange */
+    background: linear-gradient(135deg, gold, orange);
+
+    /* Creates a bold, decorative border around the card */
+    border: 3px solid darkgoldenrod;
+
+    /* Sets the text color to black for readability */
+    color: black;
+
+    /* Adds a soft shadow to give a raised, card-like effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
