@@ -1,0 +1,52 @@
+/*
+    Author:Valentin Esparza
+    Date:8/2/2026
+    Purpose:Performance Assessment - Frontend Foundations
+*/
+
+/* Structural Properties */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4ecd8;
+    color: #2b2622;
+}
+
+.hero {
+    background-color: #6b1f2a;
+    color: #f4ecd8;
+}
+
+.collection-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book-card {
+    display: inline-block;
+    background-color: #fffaf0;
+    border-left-color: #c9a227;
+}
+
+.stats {
+    background-color: #2f4538;
+    color: #f4ecd8;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fffaf0;
+}
+
+input,
+select,
+button {
+    display: block;
+    background-color: #6b1f2a;
+    color: #f4ecd8;
+}
+
+footer {
+    background-color: #2b2622;
+    color: #f4ecd8;
+}
