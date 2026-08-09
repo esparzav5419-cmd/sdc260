@@ -22,6 +22,119 @@
 
     <main>
         <section class="potion-container" aria-label="Potion recipes">
+            <!-- POTION CARD -->
+            <article class="potion">
+                <header>
+                    <h2>Fire Breath Potion</h2>
+                </header>
+
+                <p>Lets the drinker exhale a short burst of flame.</p>
+
+                <section>
+                    <h3>Ingredients</h3>
+                    <table>
+                        <caption>Fire Breath Potion Ingredients</caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Ingredient</th>
+                                <th scope="col">Quantity</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Dragon Pepper</td>
+                                <td>1 whole pod</td>
+                            </tr>
+                            <tr>
+                                <td>Ember Ash</td>
+                                <td>2 tbsp</td>
+                            </tr>
+                            <tr>
+                                <td>Sulfur Water</td>
+                                <td>1 vial</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </article>
+
+            <!-- POTION CARD -->
+            <article class="potion">
+                <header>
+                    <h2>Levitation Potion</h2>
+                </header>
+
+                <p>Allows the drinker to hover a few feet off the ground.</p>
+
+                <section>
+                    <h3>Ingredients</h3>
+                    <table>
+                        <caption>Levitation Potion Ingredients</caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Ingredient</th>
+                                <th scope="col">Quantity</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Feather Root</td>
+                                <td>3 sprigs</td>
+                            </tr>
+                            <tr>
+                                <td>Cloud Vapor</td>
+                                <td>1 jar</td>
+                            </tr>
+                            <tr>
+                                <td>Sky Petal</td>
+                                <td>2 petals</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </article>
+
+            <!-- POTION CARD -->
+            <article class="potion">
+                <header>
+                    <h2>Shrinking Potion</h2>
+                </header>
+
+                <p>Temporarily shrinks the drinker to the size of a mouse.</p>
+
+                <section>
+                    <h3>Ingredients</h3>
+                    <table>
+                        <caption>Shrinking Potion Ingredients</caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Ingredient</th>
+                                <th scope="col">Quantity</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Pixie Dust</td>
+                                <td>1 pinch</td>
+                            </tr>
+                            <tr>
+                                <td>Mouse Whisker</td>
+                                <td>2 whiskers</td>
+                            </tr>
+                            <tr>
+                                <td>Condensed Fog</td>
+                                <td>1 vial</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </article>
 
             <!-- 
                 POTION CARD:
