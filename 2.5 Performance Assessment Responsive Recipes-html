@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+        Author:Valentin Esparza
+        Date:8/9/2026
+        Purpose:Adds new potion cards, a flex layout, and responsive
+         breakpoints to the recipe book page.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potion Recipe Book</title>
+    <link rel="stylesheet" href="PA_Responsive-Recipes_StarterFile.css">
+</head>
+
+<body>
+    <header>
+        <h1>Potion Recipe Book</h1>
+        <p>A collection of magical brews and their ingredients</p>
+    </header>
+
+    <main>
+        <section class="potion-container" aria-label="Potion recipes">
+
+            <!-- 
+                POTION CARD:
+                - Each <article> represents ONE potion
+                - You may DUPLICATE this entire article then UPDATE the contents to add more potions
+                - Keep structure consistent for all potions
+            -->
+            <article class="potion">
+                <header>
+                    <!-- POTION NAME -->
+                    <h2>Healing Potion</h2>
+                </header>
+
+                <!-- POTION DESCRIPTION -->
+                <p>Restores a moderate amount of health.</p>
+
+                <!-- INGREDIENT TABLE -->
+                <section>
+                    <h3>Ingredients</h3>
+                    <table>
+                        <caption>Healing Potion Ingredients</caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Ingredient</th>
+                                <th scope="col">Quantity</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Red Herb</td>
+                                <td>2 dried specimens</td>
+                            </tr>
+                            <tr>
+                                <td>Crystal Water</td>
+                                <td>1 vial</td>
+                            </tr>
+                            <tr>
+                                <td>Glow Mushroom</td>
+                                <td>3 caps without stems</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </article>
+
+            <!-- POTION CARD -->
+            <article class="potion">
+
+                <header>
+                    <h2>Invisibility Potion</h2>
+                </header>
+
+                <p>Grants temporary invisibility.</p>
+
+                <section>
+                    <h3>Ingredients</h3>
+
+                    <table>
+                        <caption>Invisibility Potion Ingredients</caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Ingredient</th>
+                                <th scope="col">Quantity</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Ghost Leaf</td>
+                                <td>4 leaves</td>
+                            </tr>
+                            <tr>
+                                <td>Shadow Essence</td>
+                                <td>2 drops</td>
+                            </tr>
+                            <tr>
+                                <td>Nightshade</td>
+                                <td>1 plant with roots</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </article>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>Responsive Recipes Vol. YEAR</p>
+        <p>Potion Archivist: STUDENT_ID</p>
+    </footer>
+
+</body>
+
+</html>
