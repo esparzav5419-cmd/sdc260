@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!--
         Author: Valentin Esparza
@@ -11,7 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Gilded Panel — Rare Books &amp; Collectible Comics</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="jsmain.js" defer></script>
 </head>
+
 <body>
 
     <header class="site-header">
@@ -70,4 +73,5 @@
     </footer>
 
 </body>
+
 </html>
