@@ -1,0 +1,175 @@
+/*
+    Author: Valentin Esparza
+    Date: 8/16/2026
+    Purpose: Handles dynamic product display, form validation for the
+    contact, checkout shipping, and checkout purchase forms, and coupon
+    code discount logic for The Gilded Panel.
+*/
+
+/* =========================================
+   PRODUCT DATA (10+ items)
+========================================= */
+const products = [
+    { name: "The Amazing Comet-Man #1", category: "Comic", condition: "Near Mint (9.4)", price: 145.00 },
+    { name: "Wanderer's Almanac", category: "Book", condition: "Very Good", price: 38.00 },
+    { name: "Basilisk #3", category: "Comic", condition: "Fine", price: 62.00 },
+    { name: "Kelpie's Reach", category: "Graphic Novel", condition: "Near Mint", price: 54.00 },
+    { name: "The Ironclad Letters", category: "Book", condition: "Fine", price: 29.00 },
+    { name: "Nightfall Sentinel #7", category: "Comic", condition: "Near Mint (9.6)", price: 178.00 },
+    { name: "The Cartographer's Dream", category: "Book", condition: "Very Good", price: 45.00 },
+    { name: "Hollow Star Vol. 2", category: "Graphic Novel", condition: "Fine", price: 33.00 },
+    { name: "Emberfall #1", category: "Comic", condition: "Near Mint", price: 96.00 },
+    { name: "The Salt Road", category: "Book", condition: "Very Good", price: 41.00 },
+    { name: "Widow's Peak #12", category: "Comic", condition: "Fine", price: 58.00 },
+    { name: "Lantern Keeper's Ledger", category: "Graphic Novel", condition: "Near Mint", price: 47.00 }
+];
+
+/* =========================================
+   RENDER PRODUCTS (shop.html)
+========================================= */
+const productGrid = document.getElementById("productGrid");
+
+if (productGrid) {
+    products.forEach(function (item) {
+        productGrid.innerHTML += `
+            <article class="product-card">
+                <div class="cover"></div>
+                <h3>${item.name}</h3>
+                <p>${item.condition} &middot; ${item.category}</p>
+                <p class="price">$${item.price.toFixed(2)}</p>
+                <a class="btn" href="product.html">View Item</a>
+            </article>
+        `;
+    });
+}
+
+/* =========================================
+   VALIDATION HELPERS
+========================================= */
+function isEmailValid(email) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
+
+function isCardNumberValid(cardNumber) {
+    const cardPattern = /^\d{16}$/;
+    return cardPattern.test(cardNumber.replace(/\s/g, ""));
+}
+
+function isExpirationValid(expiration) {
+    const expPattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+    return expPattern.test(expiration);
+}
+
+function isSecurityCodeValid(code) {
+    const cvvPattern = /^\d{3,4}$/;
+    return cvvPattern.test(code);
+}
+
+function isZipValid(zip) {
+    const zipPattern = /^\d{5}(-\d{4})?$/;
+    return zipPattern.test(zip);
+}
+
+function isPhoneValid(phone) {
+    const phonePattern = /^\d{3}-\d{3}-\d{4}$/;
+    return phonePattern.test(phone);
+}
+
+/* =========================================
+   CONTACT FORM VALIDATION (about.html)
+========================================= */
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const email = document.getElementById("contact-email").value;
+        const message = document.getElementById("message").value;
+        let errors = [];
+
+        if (!isEmailValid(email)) {
+            errors.push("Please enter a valid email address.");
+        }
+        if (message.trim() === "") {
+            errors.push("Message is required.");
+        }
+
+        if (errors.length > 0) {
+            alert(errors.join("\n"));
+        } else {
+            alert("Message sent successfully!");
+            contactForm.reset();
+        }
+    });
+}
+
+/* =========================================
+   CHECKOUT FORM VALIDATION (checkout.html)
+========================================= */
+const checkoutForm = document.getElementById("checkoutForm");
+
+if (checkoutForm) {
+    checkoutForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const shipName = document.getElementById("name").value.trim();
+        const street = document.getElementById("street").value.trim();
+        const city = document.getElementById("city").value.trim();
+        const state = document.getElementById("state").value.trim();
+        const zip = document.getElementById("zip").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+
+        const cardName = document.getElementById("cardName").value.trim();
+        const cardNumber = document.getElementById("card").value.trim();
+        const expiration = document.getElementById("expiration").value.trim();
+        const securityCode = document.getElementById("securityCode").value.trim();
+
+        let errors = [];
+
+        if (shipName === "") errors.push("Full Name is required.");
+        if (street === "") errors.push("Street Address is required.");
+        if (city === "") errors.push("City is required.");
+        if (state === "") errors.push("State is required.");
+        if (!isZipValid(zip)) errors.push("Enter a valid ZIP code (e.g. 12345 or 12345-6789).");
+        if (!isPhoneValid(phone)) errors.push("Enter phone number as 555-555-5555.");
+
+        if (cardName === "") errors.push("Cardholder Name is required.");
+        if (!isCardNumberValid(cardNumber)) errors.push("Enter a valid 16-digit card number.");
+        if (!isExpirationValid(expiration)) errors.push("Enter expiration as MM/YY.");
+        if (!isSecurityCodeValid(securityCode)) errors.push("Enter a valid 3 or 4-digit security code.");
+
+        if (errors.length > 0) {
+            alert(errors.join("\n"));
+        } else {
+            window.location.href = "confirmation.html";
+        }
+    });
+}
+
+/* =========================================
+   COUPON / DISCOUNT LOGIC (checkout.html)
+========================================= */
+const validCoupons = {
+    "GILDED10": 10,
+    "FIRST15": 15,
+    "COLLECT20": 20
+};
+
+const orderTotal = 183.00; // matches cart.html total for now
+
+function applyCoupon() {
+    const couponInput = document.getElementById("coupon").value.trim().toUpperCase();
+    const discountResult = document.getElementById("discountResult");
+
+    if (validCoupons.hasOwnProperty(couponInput)) {
+        const discountPercent = validCoupons[couponInput];
+        const discountedTotal = orderTotal - (orderTotal * (discountPercent / 100));
+        discountResult.textContent = `Coupon applied! ${discountPercent}% off — New Total: $${discountedTotal.toFixed(2)}`;
+    } else if (couponInput === "") {
+        discountResult.textContent = "";
+    } else {
+        discountResult.textContent = "Invalid coupon code.";
+    }
+}
