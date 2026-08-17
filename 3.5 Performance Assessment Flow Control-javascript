@@ -1,0 +1,69 @@
+/*
+    Author:Valentin Esparza
+    Date:15AUG26
+    Purpose:Stores trail data, displays trail cards dynamically, and recommends a trail based on user input for
+    pets and hiking experience.
+*/
+
+/* =========================================
+   GREENWAY PARK TRAIL DATA
+========================================= */
+
+const trails = [
+   { name: "River Walk", difficulty: "low", time: 20 },
+   { name: "Forest Loop", difficulty: "medium", time: 45 },
+   { name: "Hill Summit Trail", difficulty: "high", time: 90 },
+   { name: "Lake Side Path", difficulty: "low", time: 30 },
+   { name: "Rock Ridge Trail", difficulty: "high", time: 75 },
+   { name: "valesp7141 Trail", difficulty: "medium", time: 50 },
+   { name: "Cedar Hollow Trail", difficulty: "low", time: 25 },
+   { name: "Eagle Point Trail", difficulty: "high", time: 60 },
+];
+
+/* =========================================
+   TODO: DISPLAY TRAILS VIA LOOP
+========================================= */
+const trailContainer = document.getElementById("trailContainer");
+
+for (const trail of trails) {
+   trailContainer.innerHTML += `
+        <article class="card">
+            <h3>${trail.name}</h3>
+            <p>Difficulty: ${trail.difficulty}</p>
+            <p>Average Time: ${trail.time}</p>
+        </article>
+    `;
+}
+
+
+/* =========================================
+   TODO: FORM LOGIC
+========================================= */
+function recommendTrail() {
+   const pets = document.querySelector('input[name="pets"]:checked').value;
+   const experience = document.getElementById("experience").value;
+   const resultBox = document.getElementById("result");
+
+   let recommendation = "";
+
+   if (pets === "yes" && experience === "low") {
+      recommendation = "River Walk";
+   }
+   else if (pets === "yes" && (experience === "medium" || experience === "high")) {
+      recommendation = "Forest Loop";
+   }
+   else if (pets === "no" && experience === "low") {
+      recommendation = "Lake Side Path";
+   }
+   else if (pets === "no" && experience === "medium") {
+      recommendation = "Forest Loop";
+   }
+   else if (pets === "no" && experience === "high") {
+      recommendation = "Rock Ridge Trail";
+   }
+   else {
+      recommendation = "River Walk";
+   }
+
+   resultBox.textContent = `Recommended Trail: ${recommendation}`;
+}
