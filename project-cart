@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!--
         Author: Valentin Esparza
@@ -10,7 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart — The Gilded Panel</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="jsmain.js" defer></script>
 </head>
+
 <body>
 
     <header class="site-header">
@@ -62,8 +65,10 @@
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2026 The Gilded Panel &middot; <a href="about.html">About</a> &middot; <a href="about.html">Contact</a></p>
+        <p>&copy; 2026 The Gilded Panel &middot; <a href="about.html">About</a> &middot; <a
+                href="about.html">Contact</a></p>
     </footer>
 
 </body>
+
 </html>
